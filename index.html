@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dynamic form by joelmoss</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dynamic form</h1>
+        <p>Helpers to deal with your model backed forms in Rails3</p>
+        <p class="view"><a href="https://github.com/joelmoss/dynamic_form">View the Project on GitHub <small>joelmoss/dynamic_form</small></a></p>
+        <ul>
+          <li><a href="https://github.com/joelmoss/dynamic_form/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/joelmoss/dynamic_form/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/joelmoss/dynamic_form">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>DynamicForm</h1>
+
+<p>DynamicForm holds a few helpers method to help you deal with your Rails3 models, they are:</p>
+
+<ul>
+<li><code>input(record, method, options = {})</code></li>
+<li><code>form(record, options = {})</code></li>
+<li><code>error_message_on(object, method, options={})</code></li>
+<li><code>error_messages_for(record, options={})</code></li>
+</ul><p>It also adds <code>f.error_messages</code> and <code>f.error_messages_on</code> to your form builders.</p>
+
+<p>Read <code>/lib/action_view/helpers/dynamic_form.rb</code> for details of each method.</p>
+
+<hr><h1>DynamicErrors</h1>
+
+<p>DynamicForm also includes DynamicErrors, which is a port of the custom-err-messages plugin,
+but built to work with Rails3. It gives you the option to not have your custom validation
+error message prefixed with the attribute name. Ordinarily, if you have, say:</p>
+
+<pre><code>validates_acceptance_of :accepted_terms, :message =&gt; 'Please accept the terms of service'
+</code></pre>
+
+<p>You'll get the following error message:</p>
+
+<pre><code>Accepted terms Please accept the terms of service
+</code></pre>
+
+<p>This plugin allows you to omit the attribute name for specific messages. All you have to do
+is begin the message with a '^' character. Example:</p>
+
+<pre><code>validates_acceptance_of :accepted_terms, :message =&gt; '^Please accept the terms of service'
+</code></pre>
+
+<p>Nigel Ramsay added the ability to specify a proc to generate the message.</p>
+
+<pre><code>validates_presence_of :assessment_answer_option_id, 
+  :message =&gt; Proc.new { |aa| "#{aa.label} (#{aa.group_label}) is required" }
+
+which gives an error message like: Rate (Accuracy) is required
+</code></pre>
+
+<hr><h2>Installation</h2>
+
+<p>DynamicForm can be installed as a gem in your <code>Gemfile</code>:</p>
+
+<pre><code>gem 'dynamic_form'
+</code></pre>
+
+<p>or as a plugin by running this command:</p>
+
+<pre><code>rails plugin install git://github.com/joelmoss/dynamic_form.git
+</code></pre>
+
+<hr><p>Copyright (c) 2010 David Heinemeier Hansson, released under the MIT license</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/joelmoss">joelmoss</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
